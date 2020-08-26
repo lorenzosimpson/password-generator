@@ -4,12 +4,13 @@ import { blue } from "@material-ui/core/colors";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import { Typography } from "@material-ui/core";
 
 const BlueCheckbox = withStyles({
   root: {
     "&$checked": {
       color: blue[600]
-    }
+    },
   },
   checked: {}
 })((props) => <Checkbox color="default" {...props} />);
@@ -33,7 +34,7 @@ export default function CheckboxGroup(props) {
             name="upperCase"
           />
         }
-        label="Uppercase Letters"
+        label={<Typography style={{fontFamily: 'Nunito', display: 'inline'}}>Uppercase Letters</Typography>}
       />
 
       <FormControlLabel
@@ -44,7 +45,7 @@ export default function CheckboxGroup(props) {
             name="digits"
           />
         }
-        label="Digits"
+        label={<Typography style={{fontFamily: 'Nunito'}}>Digits</Typography>}
       />
 
       <FormControlLabel
@@ -55,7 +56,7 @@ export default function CheckboxGroup(props) {
             name="symbols"
           />
         }
-        label="Symbols"
+        label={<Typography style={{fontFamily: 'Nunito'}}>Special Characters</Typography>}
       />
     </FormGroup>
   );

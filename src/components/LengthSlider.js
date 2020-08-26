@@ -9,7 +9,7 @@ import Slider from '@material-ui/core/Slider';
 const BlueSlider = withStyles({
   root: {
       color: blue[600],
-      width: 200,
+      width: '60%',
   },
 })((props) => <Slider color="default" {...props} />);
 

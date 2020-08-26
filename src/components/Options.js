@@ -6,9 +6,9 @@ function Options(props) {
     return (
         <div className='options-container'>
             <div className='options-top'>
-                <h1>Customize</h1>
+                <h2>Customize password</h2>
             </div>
-            
+
         <div className='options'>
         
         <LengthSlider 
