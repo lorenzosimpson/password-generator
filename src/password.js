@@ -31,7 +31,7 @@ export class GeneratedPassword {
 
   addSymbols(bool) {
     if (bool === true) {
-      this.characterString += "!@#$%^&*()_+=[];='";
+      this.characterString += "!@#$%^&*-()_+=[];='";
     }
     return this;
   }

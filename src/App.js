@@ -23,36 +23,34 @@ export default function App() {
   }, [length, lowerCase, upperCase, digits, symbols])
 
 
-  
-  // const password = new GeneratedPassword()
-  //   .setLength(length)
-  //   .addLowerCase(lowerCase)
-  //   .addUpperCase(upperCase)
-  //   .addDigits(digits)
-  //   .addSymbols(symbols)
-  //   .generate();
+const includesUppercase = /[A-Z]/
+const includesDigits = /[0-9]/
+const possibleSymbols = "!@#$%^&*()_+=[];='"
 
-  function generateValidaPassword() {
-    let p = new GeneratedPassword()
-    .setLength(length)
-    .addLowerCase(lowerCase)
-    .addUpperCase(upperCase)
-    .addDigits(digits)
-    .addSymbols(symbols)
-    .generate();
- 
-    const includesUppercase = /[A-Z]/
-    const includesDigits = /[0-9]/
-    const includesSymbols = /[!$@]/ // this regex needs to be fixed
-    
-    // if the password doesn't contain at least one char of each of the user selections, regenerate it until it does
-    if ((upperCase && !includesUppercase.test(p)) || (digits && !includesDigits.test(p)) || (symbols && !includesSymbols.test(p))) {
-      console.log('invalid, regenerating', p)
-      p = generateValidaPassword()
+function validateSymbols(pass) {
+    for (let i=0; i<pass.length; i++) {
+      if (possibleSymbols.indexOf(pass[i]) !== -1) {return true}
     }
- 
-    return p
+    return false
   }
+
+function generateValidaPassword() {
+  let p = new GeneratedPassword()
+  .setLength(length)
+  .addLowerCase(lowerCase)
+  .addUpperCase(upperCase)
+  .addDigits(digits)
+  .addSymbols(symbols)
+  .generate();
+
+  
+  // if the password doesn't contain at least one char of each of the user selections, regenerate it until it does
+  if ((upperCase && !includesUppercase.test(p)) || (digits && !includesDigits.test(p)) || (symbols && validateSymbols(p) === false)) {
+    console.log('invalid, regenerating', p)
+    p = generateValidaPassword() // call the function again until it passes all tests
+  }
+  return p
+}
 
   
   return (
