@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from "react";
 import StrengthIndicator from './StrengthIndicator'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import SuccessAlert from "./SuccessAlert";
 
 export function GeneratorWindow(props) {
   const [copied, setCopied] = useState(false);
-  const { password, 
-    passwordOptions, 
-    setPasswordOptions,
-    copyToClipboard } = props;
+  const { password } = props;
 
   useEffect(() => {
   return (
@@ -17,6 +15,7 @@ export function GeneratorWindow(props) {
 
   return (
     <div className="generator-window">
+      
       <div className='password-and-copy-btn'>
         <p id='password'>{password}</p>
 
@@ -33,7 +32,7 @@ export function GeneratorWindow(props) {
       
       </div>
       <StrengthIndicator password={password} />
-      {copied && (<p id='copied-success'>Password copied to clipboard!</p>)
+      {copied && (<SuccessAlert />)
       }
     </div>
   );
