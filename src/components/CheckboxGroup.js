@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import { blue } from "@material-ui/core/colors";
+import { blue, red } from "@material-ui/core/colors";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -9,7 +9,7 @@ import { Typography } from "@material-ui/core";
 const BlueCheckbox = withStyles({
   root: {
     "&$checked": {
-      color: blue[600]
+      color: red[900]
     },
   },
   checked: {}

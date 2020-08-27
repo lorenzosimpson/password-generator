@@ -1,6 +1,6 @@
 import React, { useState} from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import {blue} from '@material-ui/core/colors'
+import {red} from '@material-ui/core/colors'
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
@@ -8,9 +8,17 @@ import Slider from '@material-ui/core/Slider';
 
 const BlueSlider = withStyles({
   root: {
-      color: blue[600],
+      color: red[900],
       width: '60%',
   },
+  thumb: {
+    width: 25,
+    height: 25,
+    marginTop: -11,
+  },
+  valueLabel: {
+    marginLeft: 13,
+  }
 })((props) => <Slider color="default" {...props} />);
 
 export default function LengthSlider(props) {
